@@ -1,1 +1,205 @@
-content="# Project README\n\n## Overview\n\nThis project contains the necessary files and documentation for the assigned work. The project structure is designed to be clear and maintainable.\n\n## Project Structure\n\n```\n.\n├── README.md          # This file\n├── src/              # Source files (if applicable)\n├── docs/             # Documentation\n├── tests/            # Test files (if applicable)\n└── assets/           # Supporting materials\n```\n\n## Requirements\n\n### System Requirements\n- Operating System: Windows, macOS, or Linux\n- Internet connection (for downloads and updates)\n\n### Software Requirements\n- Text editor or IDE of your choice\n- Web browser (for viewing documentation)\n- Git (for version control)\n\n## Setup Instructions\n\n1. **Clone or Download the Project**\n   ```bash\n   git clone [repository-url]\n   cd [project-directory]\n   ```\n\n2. **Install Dependencies**\n   - Check if there are any specific requirements files\n   - Install any required software or packages\n\n3. **Verify Setup**\n   - Ensure all files are present\n   - Test that you can open and edit files\n\n## Usage\n\n### Getting Started\n1. Review all project files\n2. Follow any specific instructions in individual files\n3. Complete tasks as outlined in project documentation\n\n### File Organization\n- Keep source files organized in appropriate directories\n- Document any changes or additions\n- Follow consistent naming conventions\n\n## Configuration\n\nNo specific configuration is required for this project. If configuration files are added later, they will be documented here.\n\n## Development Guidelines\n\n### Best Practices\n- Use clear, descriptive file names\n- Comment your code/work appropriately\n- Keep files organized and clean\n- Regular commits if using version control\n\n### File Naming\n- Use lowercase letters and hyphens for file names\n- Be descriptive but concise\n- Include file extensions appropriate to content type\n\n## Testing\n\nIf this project includes testable components:\n- Test files should be placed in the `tests/` directory\n- Run tests before submitting work\n- Document any test requirements\n\n## Documentation\n\n- Keep documentation up to date\n- Use clear, concise language\n- Include examples where helpful\n- Document any assumptions or limitations\n\n## Troubleshooting\n\n### Common Issues\n- **File not found**: Check file paths and names\n- **Permission errors**: Ensure proper file permissions\n- **Missing dependencies**: Verify all requirements are installed\n\n### Getting Help\n- Review project documentation thoroughly\n- Check for any additional README files in subdirectories\n- Consult relevant course materials or resources\n\n## Contributing\n\nIf this is a collaborative project:\n1. Create a new branch for your changes\n2. Make your changes with clear commit messages\n3. Test your changes thoroughly\n4. Submit for review\n\n## License\n\nThis project is for educational/academic purposes. Please follow your institution's guidelines regarding code sharing and collaboration.\n\n## Contact\n\nFor questions or issues related to this project, please refer to the appropriate course materials or contact information provided by your instructor.\n\n---\n\n**Note**: This README will be updated as the project develops and more specific requirements become available." additional_kwargs={} response_metadata={'id': 'msg_01HAwc8QUtkFZKpAxXDUQkCN', 'model': 'claude-sonnet-4-20250514', 'stop_reason': 'end_turn', 'stop_sequence': None, 'usage': {'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'input_tokens': 167, 'output_tokens': 681, 'cache_creation': {'ephemeral_5m_input_tokens': 0, 'ephemeral_1h_input_tokens': 0}, 'service_tier': 'standard'}} id='run--bbe2a68d-d29e-4914-b621-4fb554dc7096-0' usage_metadata={'input_tokens': 167, 'output_tokens': 681, 'total_tokens': 848, 'input_token_details': {'cache_read': 0, 'cache_creation': 0}}
+# Rust Note Taking Application
+
+A fast, efficient, and user-friendly note-taking application built with Rust. This command-line tool allows you to create, manage, and organize your notes with powerful search and categorization features.
+
+## Features
+
+- **Fast Performance**: Built with Rust for optimal speed and memory efficiency
+- **Simple CLI Interface**: Easy-to-use command-line interface
+- **Note Management**: Create, edit, delete, and list notes
+- **Search Functionality**: Quick search through your notes
+- **Categories/Tags**: Organize notes with tags and categories
+- **Data Persistence**: Notes are saved locally in a structured format
+- **Cross-Platform**: Works on Windows, macOS, and Linux
+
+## Installation
+
+### Prerequisites
+
+- Rust 1.70.0 or higher
+- Cargo (comes with Rust)
+
+### From Source
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/rust-notes-app.git
+cd rust-notes-app
+```
+
+2. Build the application:
+```bash
+cargo build --release
+```
+
+3. Install globally (optional):
+```bash
+cargo install --path .
+```
+
+### Using Cargo
+
+```bash
+cargo install rust-notes-app
+```
+
+## Quick Start
+
+1. Create your first note:
+```bash
+notes add "My First Note" --content "This is my first note content"
+```
+
+2. List all notes:
+```bash
+notes list
+```
+
+3. Search for notes:
+```bash
+notes search "first"
+```
+
+## Usage
+
+### Basic Commands
+
+#### Create a New Note
+```bash
+# Create a note with title and content
+notes add "Meeting Notes" --content "Discussion points for today's meeting"
+
+# Create a note with tags
+notes add "Project Ideas" --content "Ideas for new projects" --tags "work,projects,ideas"
+
+# Create a note interactively
+notes add --interactive
+```
+
+#### List Notes
+```bash
+# List all notes
+notes list
+
+# List notes with specific tag
+notes list --tag "work"
+
+# List notes with limit
+notes list --limit 10
+```
+
+#### View a Note
+```bash
+# View note by ID
+notes show 1
+
+# View note by title (partial match)
+notes show "Meeting"
+```
+
+#### Edit a Note
+```bash
+# Edit note content
+notes edit 1 --content "Updated content"
+
+# Edit note title
+notes edit 1 --title "Updated Title"
+
+# Edit note tags
+notes edit 1 --tags "updated,tags"
+
+# Interactive edit
+notes edit 1 --interactive
+```
+
+#### Search Notes
+```bash
+# Search in titles and content
+notes search "meeting"
+
+# Search with case sensitivity
+notes search "Meeting" --case-sensitive
+
+# Search in specific fields
+notes search "project" --field title
+```
+
+#### Delete Notes
+```bash
+# Delete a specific note
+notes delete 1
+
+# Delete multiple notes
+notes delete 1 2 3
+
+# Delete all notes with confirmation
+notes delete --all
+```
+
+### Advanced Features
+
+#### Tags and Categories
+```bash
+# Add tags to existing note
+notes tag add 1 "important" "urgent"
+
+# Remove tags from note
+notes tag remove 1 "urgent"
+
+# List all tags
+notes tags list
+
+# Find notes by tag
+notes find --tag "important"
+```
+
+#### Export and Import
+```bash
+# Export notes to JSON
+notes export --format json --output notes_backup.json
+
+# Export to markdown
+notes export --format markdown --output notes.md
+
+# Import from JSON
+notes import notes_backup.json
+```
+
+#### Configuration
+```bash
+# Set default editor
+notes config set editor "vim"
+
+# Set notes directory
+notes config set notes_dir "/path/to/notes"
+
+# View current configuration
+notes config show
+```
+
+## Configuration
+
+The application stores configuration in `~/.config/rust-notes/config.toml`:
+
+```toml
+[general]
+notes_dir = "~/.local/share/rust-notes"
+default_editor = "nano"
+date_format = "%Y-%m-%d %H:%M:%S"
+
+[display]
+max_title_length = 50
+show_tags = true
+show_dates = true
+
+[search]
+case_sensitive = false
+fuzzy_search = true
+```
+
+## File Structure
+
+```
+~/.local/share/rust-notes/
+├── notes/
+│   ├── 001_my_first
